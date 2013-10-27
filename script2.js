@@ -378,7 +378,7 @@ window.onload=function ()
 		this.className='show2';
 		znsStartMove(oCaret2, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
-	var oDiv3=document.getElementById('div3');
+var oDiv3=document.getElementById('div3');
 	var aLi3=getByClass(oDiv3, 'zns_box3_head')[0].getElementsByTagName('li');
 	var aBtn3=getByClass(oDiv3, 'zns_box3_foot')[0].getElementsByTagName('a');
 	var oCaret3=getByClass(oDiv3, 'caret3')[0];
@@ -399,7 +399,7 @@ window.onload=function ()
 	}
 	
 	aBtn3[0].onclick=btn1Handler3;
-	aBtn3[1].onclick=btn2Handler4;
+	aBtn3[1].onclick=btn2Handler3;
 	
 	function btn1Handler3()
 	{
@@ -437,7 +437,7 @@ window.onload=function ()
 			if(i==-1)
 			{
 				aBtn3[0].onclick=btn1Handler3;
-				aBtn3[1].onclick=btn2Handler4;
+				aBtn3[1].onclick=btn2Handler3;
 			}
 		}
 		
@@ -448,7 +448,7 @@ window.onload=function ()
 		znsStartMove(oCaret3, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
 
-	function btn2Handler4()
+	function btn2Handler3()
 	{
 		var i=0;
 		
@@ -483,7 +483,7 @@ window.onload=function ()
 			if(i==aLi3.length)
 			{
 				aBtn3[0].onclick=btn1Handler3;
-				aBtn3[1].onclick=btn2Handler4;
+				aBtn3[1].onclick=btn2Handler3;
 			}
 		}
 		
