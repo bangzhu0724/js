@@ -264,9 +264,9 @@ window.onload=function ()
 		znsStartMove(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
 	var oDiv2=document.getElementById('div2');
-	var aLi2=getByClass2(oDiv2, 'zns_box2_head')[0].getElementsByTagName('li');
-	var aBtn2=getByClass2(oDiv2, 'zns_box2_foot')[0].getElementsByTagName('a');
-	var oCaret2=getByClass2(oDiv2, 'caret2')[0];
+	var aLi2=getByClass(oDiv2, 'zns_box2_head')[0].getElementsByTagName('li');
+	var aBtn2=getByClass(oDiv2, 'zns_box2_foot')[0].getElementsByTagName('a');
+	var oCaret2=getByClass(oDiv2, 'caret2')[0];
 	var aPos2=[];
 	var timer2=null;
 	var i2=0;
@@ -299,7 +299,7 @@ window.onload=function ()
 			var obj=aLi2[i];
 			if(i>=aLi2.length/2)
 			{
-				znsStartMove2(aLi2[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove(aLi2[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
 				timer2=setTimeout(next, 100);
 				i--;
 			}
@@ -313,7 +313,7 @@ window.onload=function ()
 		{
 			if(i>=0)
 			{
-				znsStartMove2(aLi2[i], {left: aPos2[i]}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove(aLi2[i], {left: aPos2[i]}, ZNS_MOVE_TYPE.FLEX);
 				timer2=setTimeout(next2, 100);
 			}
 			
@@ -330,7 +330,7 @@ window.onload=function ()
 		
 		aBtn2[1].className='';
 		this.className='show2';
-		znsStartMove2(oCaret2, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
+		znsStartMove(oCaret2, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
 
 	function btn2Handler2()
@@ -346,7 +346,7 @@ window.onload=function ()
 			var obj=aLi2[i];
 			if(i<aLi2.length/2)
 			{
-				znsStartMove2(aLi2[i], {left: -200}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove(aLi2[i], {left: -200}, ZNS_MOVE_TYPE.FLEX);
 				timer2=setTimeout(next, 100);
 				i++;
 			}
@@ -360,7 +360,7 @@ window.onload=function ()
 		{
 			if(i<aLi2.length)
 			{
-				znsStartMove2(aLi2[i], {left: aPos2[i-aLi2.length/2]}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove(aLi2[i], {left: aPos2[i-aLi2.length/2]}, ZNS_MOVE_TYPE.FLEX);
 				timer2=setTimeout(next2, 100);
 			}
 			i++;
@@ -376,6 +376,6 @@ window.onload=function ()
 		
 		aBtn2[0].className='';
 		this.className='show2';
-		znsStartMove2(oCaret2, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
+		znsStartMove(oCaret2, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
 };
