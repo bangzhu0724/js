@@ -1,4 +1,4 @@
-function css(obj, attr, value)
+function css2(obj, attr, value)
 {
 	if(arguments.length==2)
 		return parseFloat(obj.currentStyle?obj.currentStyle[attr]:document.defaultView.getComputedStyle(obj, false)[attr]);
@@ -28,15 +28,10 @@ function css(obj, attr, value)
 				obj.style[attr]=value;
 		}
 	
-	return function (attr_in, value_in){css(obj, attr_in, value_in)};
+	return function (attr_in, value_in){css2(obj, attr_in, value_in)};
 }
 
-var ZNS_MOVE_TYPE={
-	BUFFER: 1,
-	FLEX: 2
-};
-
-function znsStartMove(obj, oTarget, iType, fnCallBack, fnDuring)
+function znsStartMove2(obj, oTarget, iType, fnCallBack, fnDuring)
 {
 	var fnMove=null;
 	if(obj.timer)
@@ -59,7 +54,7 @@ function znsStartMove(obj, oTarget, iType, fnCallBack, fnDuring)
 	}, 15);
 }
 
-function znsDoMoveBuffer(obj, oTarget, fnCallBack, fnDuring)
+function znsDoMoveBuffer2(obj, oTarget, fnCallBack, fnDuring)
 {
 	var bStop=true;
 	var attr='';
@@ -68,7 +63,7 @@ function znsDoMoveBuffer(obj, oTarget, fnCallBack, fnDuring)
 	
 	for(attr in oTarget)
 	{
-		cur=css(obj, attr);
+		cur=css2(obj, attr);
 		if(oTarget[attr]!=cur)
 		{
 			bStop=false;
@@ -76,7 +71,7 @@ function znsDoMoveBuffer(obj, oTarget, fnCallBack, fnDuring)
 			speed=(oTarget[attr]-cur)/5;
 			speed=speed>0?Math.ceil(speed):Math.floor(speed);
 			
-			css(obj, attr, cur+speed);
+			css2(obj, attr, cur+speed);
 		}
 	}
 	
@@ -91,7 +86,7 @@ function znsDoMoveBuffer(obj, oTarget, fnCallBack, fnDuring)
 	}
 }
 
-function znsDoMoveFlex(obj, oTarget, fnCallBack, fnDuring)
+function znsDoMoveFlex2(obj, oTarget, fnCallBack, fnDuring)
 {
 	var bStop=true;
 	var attr='';
@@ -102,7 +97,7 @@ function znsDoMoveFlex(obj, oTarget, fnCallBack, fnDuring)
 	{
 		if(!obj.oSpeed)obj.oSpeed={};
 		if(!obj.oSpeed[attr])obj.oSpeed[attr]=0;
-		cur=css(obj, attr);
+		cur=css2(obj, attr);
 		if(Math.abs(oTarget[attr]-cur)>1 || Math.abs(obj.oSpeed[attr])>1)
 		{
 			bStop=false;
@@ -115,7 +110,7 @@ function znsDoMoveFlex(obj, oTarget, fnCallBack, fnDuring)
 				obj.oSpeed[attr]=obj.oSpeed[attr]>0?maxSpeed:-maxSpeed;
 			}
 			
-			css(obj, attr, cur+obj.oSpeed[attr]);
+			css2(obj, attr, cur+obj.oSpeed[attr]);
 		}
 	}
 	
@@ -129,7 +124,7 @@ function znsDoMoveFlex(obj, oTarget, fnCallBack, fnDuring)
 	}
 }
 
-function getByClass(oParent, sClass)
+function getByClass2(oParent, sClass)
 {
 	var aEle=oParent.getElementsByTagName('*');
 	var aResult=[];
@@ -149,9 +144,9 @@ function getByClass(oParent, sClass)
 window.onload=function ()
 {
 	var oDiv=document.getElementById('div2');
-	var aLi=getByClass(oDiv, 'zns_box2_head')[0].getElementsByTagName('li');
-	var aBtn=getByClass(oDiv, 'zns_box2_foot')[0].getElementsByTagName('a');
-	var oCaret=getByClass(oDiv, 'caret')[0];
+	var aLi=getByClass2(oDiv, 'zns_box2_head')[0].getElementsByTagName('li');
+	var aBtn=getByClass2(oDiv, 'zns_box2_foot')[0].getElementsByTagName('a');
+	var oCaret=getByClass2(oDiv, 'caret2')[0];
 	var aPos=[];
 	var timer=null;
 	var i=0;
@@ -168,10 +163,10 @@ window.onload=function ()
 		aLi[i].style.left=aPos[i]+'px';
 	}
 	
-	aBtn[0].onclick=btn1Handler;
-	aBtn[1].onclick=btn2Handler;
+	aBtn[0].onclick=btn1Handler2;
+	aBtn[1].onclick=btn2Handler2;
 	
-	function btn1Handler()
+	function btn1Handler2()
 	{
 		var i=aLi.length-1;
 		
@@ -184,7 +179,7 @@ window.onload=function ()
 			var obj=aLi[i];
 			if(i>=aLi.length/2)
 			{
-				znsStartMove(aLi[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove2(aLi[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
 				timer=setTimeout(next, 100);
 				i--;
 			}
@@ -198,7 +193,7 @@ window.onload=function ()
 		{
 			if(i>=0)
 			{
-				znsStartMove(aLi[i], {left: aPos[i]}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove2(aLi[i], {left: aPos[i]}, ZNS_MOVE_TYPE.FLEX);
 				timer=setTimeout(next2, 100);
 			}
 			
@@ -206,8 +201,8 @@ window.onload=function ()
 			
 			if(i==-1)
 			{
-				aBtn[0].onclick=btn1Handler;
-				aBtn[1].onclick=btn2Handler;
+				aBtn[0].onclick=btn1Handler2;
+				aBtn[1].onclick=btn2Handler2;
 			}
 		}
 		
@@ -215,10 +210,10 @@ window.onload=function ()
 		
 		aBtn[1].className='';
 		this.className='show2';
-		znsStartMove(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
+		znsStartMove2(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
 
-	function btn2Handler()
+	function btn2Handler2()
 	{
 		var i=0;
 		
@@ -231,7 +226,7 @@ window.onload=function ()
 			var obj=aLi[i];
 			if(i<aLi.length/2)
 			{
-				znsStartMove(aLi[i], {left: -200}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove2(aLi[i], {left: -200}, ZNS_MOVE_TYPE.FLEX);
 				timer=setTimeout(next, 100);
 				i++;
 			}
@@ -245,15 +240,15 @@ window.onload=function ()
 		{
 			if(i<aLi.length)
 			{
-				znsStartMove(aLi[i], {left: aPos[i-aLi.length/2]}, ZNS_MOVE_TYPE.FLEX);
+				znsStartMove2(aLi[i], {left: aPos[i-aLi.length/2]}, ZNS_MOVE_TYPE.FLEX);
 				timer=setTimeout(next2, 100);
 			}
 			i++;
 			
 			if(i==aLi.length)
 			{
-				aBtn[0].onclick=btn1Handler;
-				aBtn[1].onclick=btn2Handler;
+				aBtn[0].onclick=btn1Handler2;
+				aBtn[1].onclick=btn2Handler2;
 			}
 		}
 		
@@ -261,6 +256,6 @@ window.onload=function ()
 		
 		aBtn[0].className='';
 		this.className='show2';
-		znsStartMove(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
+		znsStartMove2(oCaret, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
 };
