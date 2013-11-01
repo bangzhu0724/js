@@ -765,7 +765,7 @@ window.onload=function ()
 			}
 			else
 			{
-				timer6=setTimeout(next2, 150);
+				timer6=setTimeout(next2, 160);
 			}
 		}
 		
@@ -812,7 +812,7 @@ window.onload=function ()
 			}
 			else if(i==aLi6.length/2)
 			{
-				timer6=setTimeout(next2, 150);
+				timer6=setTimeout(next2, 160);
 			}
 		}
 		
@@ -838,49 +838,49 @@ window.onload=function ()
 		this.className='show6';
 		znsStartMove(oCaret6, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
-		var oDiv6=document.getElementById('div6');
-	var aLi6=getByClass(oDiv6, 'zns_box6_head')[0].getElementsByTagName('li');
-	var aBtn6=getByClass(oDiv6, 'zns_box6_foot')[0].getElementsByTagName('a');
-	var oCaret6=getByClass(oDiv6, 'caret6')[0];
-	var aPos6=[];
-	var timer6=null;
-	var i6=0;
+		var oDiv7=document.getElementById('div7');
+	var aLi7=getByClass(oDiv7, 'zns_box7_head')[0].getElementsByTagName('li');
+	var aBtn7=getByClass(oDiv7, 'zns_box7_foot')[0].getElementsByTagName('a');
+	var oCaret7=getByClass(oDiv7, 'caret7')[0];
+	var aPos7=[];
+	var timer7=null;
+	var i7=0;
 	
-	for(i6=0;i6<aLi6.length;i6++)
+	for(i7=0;i7<aLi7.length;i7++)
 	{
-		aLi6[i6].index=i6;
-		aPos6[i6]=aLi6[i6].offsetLeft;
+		aLi7[i7].index=i7;
+		aPos7[i7]=aLi7[i7].offsetLeft;
 	}
 	
-	for(i6=0;i6<aLi6.length;i6++)
+	for(i7=0;i7<aLi7.length;i7++)
 	{
-		aLi6[i6].style.position='absolute';
-		aLi6[i6].style.left=aPos6[i6]+'px';
+		aLi7[i7].style.position='absolute';
+		aLi7[i7].style.left=aPos7[i7]+'px';
 	}
 	
-	aBtn6[0].onclick=btn1Handler6;
-	aBtn6[1].onclick=btn2Handler6;
+	aBtn7[0].onclick=btn1Handler7;
+	aBtn7[1].onclick=btn2Handler7;
 	
-	function btn1Handler6()
+	function btn1Handler7()
 	{
-		var i=aLi6.length-1;
+		var i=aLi7.length-1;
 		
-		clearTimeout(timer6);
-		aBtn6[0].onclick=null;
-		aBtn6[1].onclick=null;
+		clearTimeout(timer7);
+		aBtn7[0].onclick=null;
+		aBtn7[1].onclick=null;
 		
 		function next()
 		{
-			var obj=aLi6[i];
-			if(i>=aLi6.length/2)
+			var obj=aLi7[i];
+			if(i>=aLi7.length/2)
 			{
-				znsStartMove(aLi6[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
-				timer6=setTimeout(next, 100);
+				znsStartMove(aLi7[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
+				timer7=setTimeout(next, 100);
 				i--;
 			}
 			else
 			{
-				timer6=setTimeout(next2, 150);
+				timer7=setTimeout(next2, 170);
 			}
 		}
 		
@@ -927,7 +927,7 @@ window.onload=function ()
 			}
 			else if(i==aLi7.length/2)
 			{
-				timer7=setTimeout(next2, 150);
+				timer7=setTimeout(next2, 170);
 			}
 		}
 		
@@ -953,49 +953,49 @@ window.onload=function ()
 		this.className='show7';
 		znsStartMove(oCaret7, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
-		var oDiv6=document.getElementById('div6');
-	var aLi6=getByClass(oDiv6, 'zns_box6_head')[0].getElementsByTagName('li');
-	var aBtn6=getByClass(oDiv6, 'zns_box6_foot')[0].getElementsByTagName('a');
-	var oCaret6=getByClass(oDiv6, 'caret6')[0];
-	var aPos6=[];
-	var timer6=null;
-	var i6=0;
+		var oDiv8=document.getElementById('div8');
+	var aLi8=getByClass(oDiv8, 'zns_box8_head')[0].getElementsByTagName('li');
+	var aBtn8=getByClass(oDiv8, 'zns_box8_foot')[0].getElementsByTagName('a');
+	var oCaret8=getByClass(oDiv8, 'caret8')[0];
+	var aPos8=[];
+	var timer8=null;
+	var i8=0;
 	
-	for(i6=0;i6<aLi6.length;i6++)
+	for(i8=0;i8<aLi8.length;i8++)
 	{
-		aLi6[i6].index=i6;
-		aPos6[i6]=aLi6[i6].offsetLeft;
+		aLi8[i8].index=i8;
+		aPos8[i8]=aLi8[i8].offsetLeft;
 	}
 	
-	for(i6=0;i6<aLi6.length;i6++)
+	for(i8=0;i8<aLi8.length;i8++)
 	{
-		aLi6[i6].style.position='absolute';
-		aLi6[i6].style.left=aPos6[i6]+'px';
+		aLi8[i8].style.position='absolute';
+		aLi8[i8].style.left=aPos8[i8]+'px';
 	}
 	
-	aBtn6[0].onclick=btn1Handler6;
-	aBtn6[1].onclick=btn2Handler6;
+	aBtn8[0].onclick=btn1Handler8;
+	aBtn8[1].onclick=btn2Handler8;
 	
-	function btn1Handler6()
+	function btn1Handler8()
 	{
-		var i=aLi6.length-1;
+		var i=aLi8.length-1;
 		
-		clearTimeout(timer6);
-		aBtn6[0].onclick=null;
-		aBtn6[1].onclick=null;
+		clearTimeout(timer8);
+		aBtn8[0].onclick=null;
+		aBtn8[1].onclick=null;
 		
 		function next()
 		{
-			var obj=aLi6[i];
-			if(i>=aLi6.length/2)
+			var obj=aLi8[i];
+			if(i>=aLi8.length/2)
 			{
-				znsStartMove(aLi6[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
-				timer6=setTimeout(next, 100);
+				znsStartMove(aLi8[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
+				timer8=setTimeout(next, 100);
 				i--;
 			}
 			else
 			{
-				timer6=setTimeout(next2, 150);
+				timer8=setTimeout(next2, 180);
 			}
 		}
 		
@@ -1042,7 +1042,7 @@ window.onload=function ()
 			}
 			else if(i==aLi8.length/2)
 			{
-				timer8=setTimeout(next2, 150);
+				timer8=setTimeout(next2, 180);
 			}
 		}
 		
