@@ -378,4 +378,119 @@ window.onload=function ()
 		this.className='show2';
 		znsStartMove(oCaret2, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
 	};
+		var oDiv3=document.getElementById('div3');
+	var aLi3=getByClass(oDiv3, 'zns_box3_head')[0].getElementsByTagName('li');
+	var aBtn3=getByClass(oDiv3, 'zns_box3_foot')[0].getElementsByTagName('a');
+	var oCaret3=getByClass(oDiv3, 'caret3')[0];
+	var aPos3=[];
+	var timer3=null;
+	var i3=0;
+	
+	for(i3=0;i3<aLi3.length;i3++)
+	{
+		aLi3[i3].index=i3;
+		aPos3[i3]=aLi3[i3].offsetLeft;
+	}
+	
+	for(i3=0;i3<aLi3.length;i3++)
+	{
+		aLi3[i3].style.position='absolute';
+		aLi3[i3].style.left=aPos3[i3]+'px';
+	}
+	
+	aBtn3[0].onclick=btn1Handler3;
+	aBtn3[1].onclick=btn2Handler3;
+	
+	function btn1Handler3()
+	{
+		var i=aLi3.length-1;
+		
+		clearTimeout(timer3);
+		aBtn3[0].onclick=null;
+		aBtn3[1].onclick=null;
+		
+		function next()
+		{
+			var obj=aLi3[i];
+			if(i>=aLi3.length/2)
+			{
+				znsStartMove(aLi3[i], {left: 900}, ZNS_MOVE_TYPE.FLEX);
+				timer3=setTimeout(next, 100);
+				i--;
+			}
+			else
+			{
+				timer3=setTimeout(next2, 150);
+			}
+		}
+		
+		function next2()
+		{
+			if(i>=0)
+			{
+				znsStartMove(aLi3[i], {left: aPos3[i]}, ZNS_MOVE_TYPE.FLEX);
+				timer3=setTimeout(next2, 100);
+			}
+			
+			i--;
+			
+			if(i==-1)
+			{
+				aBtn3[0].onclick=btn1Handler3;
+				aBtn3[1].onclick=btn2Handler3;
+			}
+		}
+		
+		next();
+		
+		aBtn3[1].className='';
+		this.className='show3';
+		znsStartMove(oCaret3, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
+	};
+
+	function btn2Handler3()
+	{
+		var i=0;
+		
+		clearTimeout(timer3);
+		aBtn3[0].onclick=null;
+		aBtn3[1].onclick=null;
+		
+		function next()
+		{
+			var obj=aLi3[i];
+			if(i<aLi3.length/2)
+			{
+				znsStartMove(aLi3[i], {left: -200}, ZNS_MOVE_TYPE.FLEX);
+				timer3=setTimeout(next, 100);
+				i++;
+			}
+			else if(i==aLi3.length/2)
+			{
+				timer3=setTimeout(next2, 150);
+			}
+		}
+		
+		function next2()
+		{
+			if(i<aLi3.length)
+			{
+				znsStartMove(aLi3[i], {left: aPos3[i-aLi3.length/2]}, ZNS_MOVE_TYPE.FLEX);
+				timer3=setTimeout(next2, 100);
+			}
+			i++;
+			
+			if(i==aLi3.length)
+			{
+				aBtn3[0].onclick=btn1Handler3;
+				aBtn3[1].onclick=btn2Handler3;
+			}
+		}
+		
+		next();
+		
+		aBtn3[0].className='';
+		this.className='show3';
+		znsStartMove(oCaret3, {left: this.offsetLeft+this.offsetWidth/2}, ZNS_MOVE_TYPE.BUFFER);
+	};
 };
